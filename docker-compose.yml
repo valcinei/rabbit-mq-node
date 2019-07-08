@@ -1,0 +1,15 @@
+version: '3.5'
+services:
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: rabbitmq
+    hostname: rabbitmq
+    ports:
+      - "18585:15672"
+      - "8585:5672"
+    network_mode: "bridge"
+    volumes:
+     - $PWD/storage/rabbitmq:/var/lib/rabbitmq
+    environment:
+     - RABBITMQ_DEFAULT_USER=admin
+     - RABBITMQ_DEFAULT_PASS=admin
